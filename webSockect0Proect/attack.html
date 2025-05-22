@@ -1,0 +1,39 @@
+<script>
+
+    window.WebSocket = window.WebSocket || window.MozWebSocket;
+    if (!window.WebSocket) {
+        alert('Sorry, but your browser doesn\'t support WebSocket.')
+        window.location.href="/"
+    }
+    var connection = new WebSocket('ws://ctf18.root-me.org/ws');  
+    connection.onopen = function () {};  
+    connection.onerror = function (error) {
+      alert("An error occured, you will reload the page for you to access a new room !")
+      location.reload()
+    };
+    connection.onmessage = function (message) {
+      console.log(message)
+    };
+    connection.onclose = function(message) {
+     console.log(message)
+    }
+    function sendMessage() {
+        var message = document.getElementById("message").value;
+        if (message.length > 0) {
+            connection.send(message);
+            document.getElementById("message").value = "";
+        }
+    }
+
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Attack</h1>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <input type="text" id="message" class="form-control" placeholder="Enter your message here...">
+            </div>
+            <button onclick="sendMessage()" class="btn btn-primary">Send</button>
+        </div>
+    </div>
